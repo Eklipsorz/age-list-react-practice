@@ -5,7 +5,7 @@ import styles from './UserInfoForm.module.css';
 const UserInfoForm = (props) => {
   return (
     <Card>
-      <form>
+      <form className={styles['form']}>
         <div className={styles['form-control']}>
           <label>Username</label>
           <input />
