@@ -6,27 +6,36 @@ import './App.css';
 const DUMMY_DATA = [
   {
     id: 'e1',
-    text: 'Max (31 years old)',
+    name: 'Max',
+    age: 31,
   },
   {
     id: 'e2',
-    text: 'Sam (21 years old)',
+    name: 'Sam',
+    age: 21,
   },
 ];
 
 function App() {
   const initUsers = DUMMY_DATA;
   const [users, setUsers] = useState(initUsers);
-
+  console.log('users', users);
   const itemDeleteHandler = (id) => {
     const newUsers = users.filter((user) => user.id !== id);
     setUsers(newUsers);
   };
 
+  const itemAddHandler = (data) => {
+    const callback = (users) => {
+      return [data, ...users];
+    };
+    setUsers(callback);
+  };
+
   return (
     <div>
       <section id='user-info-form'>
-        <UserInfoForm />
+        <UserInfoForm onAddItem={itemAddHandler} />
       </section>
       <section id='user-info-list'>
         <UserInfoList users={users} onDeleteItem={itemDeleteHandler} />

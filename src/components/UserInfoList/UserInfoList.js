@@ -15,7 +15,7 @@ const UserInfoList = (props) => {
               id={user.id}
               onDeleteItem={props.onDeleteItem}
             >
-              {user.text}
+              {`${user.name} (${user.age} years old)`}
             </UserInfoListItem>
           ))}
         </ul>
