@@ -4,13 +4,19 @@ import Card from '../UI/Card';
 
 const UserInfoList = (props) => {
   const { users } = props;
-  console.log('users', users);
+
   return (
     <Card>
       <div className={styles.users}>
         <ul>
           {users.map((user) => (
-            <UserInfoListItem key={user.id}>{user.text}</UserInfoListItem>
+            <UserInfoListItem
+              key={user.id}
+              id={user.id}
+              onDeleteItem={props.onDeleteItem}
+            >
+              {user.text}
+            </UserInfoListItem>
           ))}
         </ul>
       </div>
