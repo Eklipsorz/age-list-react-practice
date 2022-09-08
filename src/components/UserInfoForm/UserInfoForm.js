@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Card from '../UI/Card';
 import Button from '../UI/Button';
+import ErrorModal from '../UI/ErrorModal';
 import styles from './UserInfoForm.module.css';
 
 const UserInfoForm = (props) => {
@@ -34,19 +35,22 @@ const UserInfoForm = (props) => {
   };
 
   return (
-    <Card>
-      <form className={styles['form']} onSubmit={submitHandler}>
-        <div className={styles['form-control']}>
-          <label>Username</label>
-          <input value={userName} onChange={userNameChangeHandler} />
-        </div>
-        <div className={styles['form-control']}>
-          <label>Age(Years)</label>
-          <input value={age} onChange={ageChangeHandler} />
-        </div>
-        <Button type='submit'>Add User</Button>
-      </form>
-    </Card>
+    <div>
+      <ErrorModal title='hhhh'></ErrorModal>
+      <Card>
+        <form className={styles['form']} onSubmit={submitHandler}>
+          <div className={styles['form-control']}>
+            <label>Username</label>
+            <input value={userName} onChange={userNameChangeHandler} />
+          </div>
+          <div className={styles['form-control']}>
+            <label>Age(Years)</label>
+            <input value={age} onChange={ageChangeHandler} />
+          </div>
+          <Button type='submit'>Add User</Button>
+        </form>
+      </Card>
+    </div>
   );
 };
 
