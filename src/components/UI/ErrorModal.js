@@ -9,7 +9,7 @@ const ErrorModal = (props) => {
   };
 
   return (
-    <div className={styles['modal']}>
+    <div className={styles['modal']} onClick={clickHandler}>
       <div className={styles['modal-content']}>
         <div className={styles['modal-header']}>
           <h2>{title}</h2>
