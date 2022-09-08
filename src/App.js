@@ -19,7 +19,7 @@ const DUMMY_DATA = [
 function App() {
   const initUsers = DUMMY_DATA;
   const [users, setUsers] = useState(initUsers);
-  console.log('users', users);
+
   const itemDeleteHandler = (id) => {
     const newUsers = users.filter((user) => user.id !== id);
     setUsers(newUsers);

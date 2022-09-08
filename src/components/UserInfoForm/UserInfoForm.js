@@ -5,6 +5,7 @@ import ErrorModal from '../UI/ErrorModal';
 import styles from './UserInfoForm.module.css';
 
 const UserInfoForm = (props) => {
+  const [error, setError] = useState(null);
   const [userName, setUserName] = useState('');
   const [age, setAge] = useState('');
 
@@ -20,8 +21,28 @@ const UserInfoForm = (props) => {
     event.preventDefault();
     event.stopPropagation();
 
-    if (!userName.trim().length || !age.trim().length) return;
-    if (Number(age) <= 0) return;
+    let title = '';
+    let text = '';
+    switch (true) {
+      case age.trim().length && Number(age) <= 0: {
+        title = 'Invalid Input';
+        text = 'Please enter a valid age (> 0).';
+        break;
+      }
+      case !userName.trim().length || !age.trim().length: {
+        title = 'Invalid Input';
+        text = 'Please enter a valid name and age (non-empty values).';
+        break;
+      }
+
+      default:
+        break;
+    }
+
+    if (title.length) {
+      setError({ title, text });
+      return;
+    }
 
     const userData = {
       id: Math.random().toString(),
@@ -34,9 +55,20 @@ const UserInfoForm = (props) => {
     setAge('');
   };
 
+  const onErrorModalClickHandler = () => {
+    setError(null);
+  };
+
   return (
     <div>
-      <ErrorModal title='hhhh'></ErrorModal>
+      {error && (
+        <ErrorModal
+          title={error.title}
+          text={error.text}
+          onErrorModal={onErrorModalClickHandler}
+        ></ErrorModal>
+      )}
+
       <Card>
         <form className={styles['form']} onSubmit={submitHandler}>
           <div className={styles['form-control']}>
