@@ -1,5 +1,5 @@
 import styles from './UserInfoList.module.css';
-import UserInfoListItem from '../UserInfoListItem/UserInfoListItem';
+import UserInfoListItem from './UserInfoListItem';
 import Card from '../UI/Card';
 
 const UserInfoList = (props) => {

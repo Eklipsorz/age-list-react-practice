@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import UserInfoForm from './components/UserInfoForm/UserInfoForm';
-import UserInfoList from './components/UserInfoList/UserInfoList';
+import UserInfoForm from './components/Users/UserInfoForm';
+import UserInfoList from './components/Users/UserInfoList';
 import './App.css';
 
 const DUMMY_DATA = [
@@ -33,14 +33,14 @@ function App() {
   };
 
   return (
-    <div>
+    <>
       <section id='user-info-form'>
         <UserInfoForm onAddItem={itemAddHandler} />
       </section>
       <section id='user-info-list'>
         <UserInfoList users={users} onDeleteItem={itemDeleteHandler} />
       </section>
-    </div>
+    </>
   );
 }
 

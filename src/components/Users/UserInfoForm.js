@@ -60,7 +60,7 @@ const UserInfoForm = (props) => {
   };
 
   return (
-    <div>
+    <>
       {error && (
         <ErrorModal
           title={error.title}
@@ -68,7 +68,6 @@ const UserInfoForm = (props) => {
           onErrorModal={onErrorModalClickHandler}
         ></ErrorModal>
       )}
-
       <Card>
         <form className={styles['form']} onSubmit={submitHandler}>
           <div className={styles['form-control']}>
@@ -82,7 +81,7 @@ const UserInfoForm = (props) => {
           <Button type='submit'>Add User</Button>
         </form>
       </Card>
-    </div>
+    </>
   );
 };
 
