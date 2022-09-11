@@ -55,7 +55,7 @@ const UserInfoForm = (props) => {
     setAge('');
   };
 
-  const onErrorModalClickHandler = () => {
+  const errorHandler = () => {
     setError(null);
   };
 
@@ -65,7 +65,7 @@ const UserInfoForm = (props) => {
         <ErrorModal
           title={error.title}
           text={error.text}
-          onErrorModal={onErrorModalClickHandler}
+          onConfirm={errorHandler}
         ></ErrorModal>
       )}
       <Card>

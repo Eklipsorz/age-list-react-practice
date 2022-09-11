@@ -1,27 +1,22 @@
 import Button from './Button';
 import styles from './ErrorModal.module.css';
-
+import Card from '../UI/Card';
 const ErrorModal = (props) => {
-  const { title, text } = props;
-
-  const clickHandler = (event) => {
-    props.onErrorModal();
-  };
-
   return (
-    <div className={styles['modal']} onClick={clickHandler}>
-      <div className={styles['modal-content']}>
+    <>
+      <div className={styles['backdrop']} onClick={props.onConfirm}></div>
+      <Card className={styles['modal']}>
         <div className={styles['modal-header']}>
-          <h2>{title}</h2>
+          <h2>{props.title}</h2>
         </div>
         <div className={styles['modal-body']}>
-          <p>{text}</p>
+          <p>{props.text}</p>
         </div>
         <div className={styles['modal-footer']}>
-          <Button onClick={clickHandler}>Okay</Button>
+          <Button onClick={props.onConfirm}>Okay</Button>
         </div>
-      </div>
-    </div>
+      </Card>
+    </>
   );
 };
 
